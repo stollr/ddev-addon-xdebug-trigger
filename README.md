@@ -10,6 +10,15 @@ cronjobs, etc.
 
 This add-on addresses the issue by setting `xdebug.start_with_request` to `trigger`.
 
+Installation
+------------
+
+At this moment this is not an official add-on. But you can install it by running
+
+    ddev add-on get https://github.com/stollr/ddev-addon-xdebug-trigger/tarball/main
+
+in the root directory of your project.
+
 How to trigger Xdebug?
 ----------------------
 

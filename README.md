@@ -1,8 +1,8 @@
 DDEV Add-on Xdebug Trigger
 ==========================
 
-Usually xdebug is enabled in ddev projects by executing `ddev xdebug`
-at the host system. This enables xdebug with the setting `xdebug.start_with_request = yes`,
+Usually xdebug is enabled in [ddev](https://ddev.com/) projects by executing
+`ddev xdebug` at the host system. This enables xdebug with the setting `xdebug.start_with_request = yes`,
 which means it is running on all cli scripts and web requests.
 
 This is not always desired. For example if there are long running php scripts,

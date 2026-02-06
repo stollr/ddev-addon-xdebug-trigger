@@ -1,0 +1,5 @@
+name: xdebug-trigger
+
+project_files:
+    - php/xdebug-start-with-request.ini
+    - config.xdebug-trigger-aliases.yaml

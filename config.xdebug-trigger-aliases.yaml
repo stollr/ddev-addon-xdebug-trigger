@@ -1,0 +1,28 @@
+#ddev-generated
+xdebug_enabled: true
+hooks:
+    post-start:
+        - exec: |
+              php -r '
+                $filename = getenv("HOME") . "/.profile";
+
+                if (!file_exists($filename) && !is_writeable(dirname($filename))) {
+                    echo "Not able to create file $filename";
+                    exit(1);
+                }
+                if (file_exists($filename) && !is_writeable($filename)) {
+                    echo "Not able to write to file $filename";
+                    exit(1);
+                }
+                touch($filename);
+                $content = file_get_contents($filename);
+                if (strpos($content, "###>>> xdebug trigger aliases") === false) {
+                    $content = <<<CONTENT
+                        ###>>> xdebug trigger aliases
+                        alias xdebug-start="export XDEBUG_MODE=debug; export XDEBUG_SESSION=1"
+                        alias xdebug-stop="unset XDEBUG_SESSION; unset XDEBUG_CONFIG"
+                        ###<<< xdebug trigger aliases
+                        CONTENT;
+                    file_put_contents($filename, "\n$content\n", FILE_APPEND);
+                }
+              '

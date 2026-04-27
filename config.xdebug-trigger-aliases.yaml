@@ -19,8 +19,8 @@ hooks:
                 if (strpos($content, "###>>> xdebug trigger aliases") === false) {
                     $content = <<<CONTENT
                         ###>>> xdebug trigger aliases
-                        alias xdebug-start="export XDEBUG_MODE=debug; export XDEBUG_SESSION=1"
-                        alias xdebug-stop="unset XDEBUG_SESSION; unset XDEBUG_CONFIG"
+                        alias xdebug-start="export XDEBUG_MODE=debug; export XDEBUG_TRIGGER=1; export XDEBUG_SESSION=1"
+                        alias xdebug-stop="unset XDEBUG_TRIGGER; unset XDEBUG_SESSION; unset XDEBUG_CONFIG"
                         ###<<< xdebug trigger aliases
                         CONTENT;
                     file_put_contents($filename, "\n$content\n", FILE_APPEND);
